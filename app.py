@@ -3,7 +3,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import yaml
 
-uri = "mongodb+srv://scarlett:hackathon2023@cluster1.gmttnh0.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://scarlett:<password>@cluster1.gmttnh0.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
 mydb = client["hackathon_2023"]
 mycol1 = mydb["querystats_transformed"]
