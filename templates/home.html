@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Flask App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+function myFunction_text1() {
+var text2= $('#text1').val();
+  $.ajax({
+              url: "/query",
+              type: "POST",
+              data: {text2:text2}
+          }).done(function(response) {
+            var html= "<br><br><br><p> <b> RESULT : <b><p>";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+="<p>"+val+"<p>"
+                });
+                html +="<br>";
+                $(".show-data").append(html);
+            });
+}
+function myFunction_text23() {
+var text2= $('#text2').val();
+var text3= $('#text3').val();
+  $.ajax({
+              url: "/print",
+              type: "POST",
+              data: {text2:text2,
+                  text3:text3
+              }
+          }).done(function(response) {
+            var html= "<br><br><br><p> <b> RESULT : <b><p>";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+="<p>"+val+"<p>"
+                });
+                html +="<br>";
+                $(".show-data").append(html);
+            });
+}
+;
+  </script>
+<body>
+    <p>
+        Sys perf <> DS smart workload generation<br><br>
+        <hr>
+            Number of Centroid: <input type="text" id="text1" name="text1"><br><br>
+            <button id="clicked_VALUE1" onclick="myFunction_text1()">Submit</button>
+        </p>
+            Test type for Genny: <input type="text" id="text2" name="text2"><br><br>
+            Params for Genny yaml file
+        </p>
+            x value: <input type="text" id="text3" name="text3"><br><br>
+            <button id="clicked_VALUE2" onclick="myFunction_text23()">Submit</button>
+        </p>
+    <div class="show-data" >
+    </div>
+</body>
+</html>
