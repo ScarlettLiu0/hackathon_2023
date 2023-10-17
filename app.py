@@ -16,7 +16,7 @@ def get_query_result_col1(text1):
    # text1 = text1.upper()
    # text2 = text2.upper()
    # combine = text1 + text2
-   query_result = str(mycol1.find_one({'_id': {'oid': '651192e13b4ae784aea798f9'}}))
+   query_result = str(mycol1.find_one({'_id': {'oid': <org_id>}}))
    # '651192e13b4ae784aea798f9'
    return query_result
 
